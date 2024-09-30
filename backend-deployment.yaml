@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multiplication-table-backend-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: multiplication-table-backend
+
+  template:
+    metadata:
+      name: multiplication-table-backend-pod
+      labels:
+        app.kubernetes.io/name: multiplication-table-backend
+    spec:
+      containers:
+      - name: multiplication-table-backend-container
+        image: jonathan434/sesac-module-project2-fast-api:develop
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
+
+          

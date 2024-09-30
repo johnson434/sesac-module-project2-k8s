@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multiplication-table-front-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: multiplication-table-front
+
+  template:
+    metadata:
+      name: multiplication-table-front-pod
+      labels:
+        app.kubernetes.io/name: multiplication-table-front
+    spec:
+      containers:
+      - name: multiplication-table-front-container
+        image: jonathan434/sesac-module-project2-react:develop
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP

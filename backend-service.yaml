@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: multiplication-table-backend-service
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: multiplication-table-backend
+
+  ports:
+  - name: service-port
+    port: 9090
+    targetPort: 80

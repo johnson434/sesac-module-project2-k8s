@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: multiplication-table-front-service
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: multiplication-table-front
+
+  ports:
+  - name: service-port
+    port: 8080
+    targetPort: 80
+
